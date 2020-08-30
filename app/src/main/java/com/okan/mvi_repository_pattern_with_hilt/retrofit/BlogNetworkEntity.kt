@@ -8,7 +8,7 @@ data class BlogNetworkEntity(
 
     @SerializedName("pk")
     @Expose
-    val pk: Int,
+    val id: Int,
 
     @SerializedName("title")
     @Expose
