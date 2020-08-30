@@ -33,5 +33,5 @@ constructor() : EntityMapper<BlogCacheEntity, Blog> {
             mapFromEntity(blogCacheEntity)
         }
     }
-    
+
 }
