@@ -1,7 +1,8 @@
-package com.okan.mvi_repository_pattern_with_hilt
+package com.okan.mvi_repository_pattern_with_hilt.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.okan.mvi_repository_pattern_with_hilt.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
