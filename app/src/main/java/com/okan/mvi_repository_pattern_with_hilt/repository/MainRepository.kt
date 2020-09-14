@@ -9,8 +9,10 @@ import com.okan.mvi_repository_pattern_with_hilt.util.DataState
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import javax.inject.Inject
 
 class MainRepository
+@Inject
 constructor(
     private val blogDao: BlogDao,
     private val blogRetrofit: BlogRetrofit,
@@ -23,7 +25,7 @@ constructor(
         delay(1000) // delay is just seeing the progress
         try {
             // retrieve from network
-            val networkBlogList = blogRetrofit.get()
+            val networkBlogList = blogRetrofit.getBlogs()
             val blogList = networkMapper.mapFromEntityList(networkBlogList)
 
             // send to cache
@@ -32,7 +34,7 @@ constructor(
             }
 
             // read from the cache
-            val cachedBlogList = blogDao.get()
+            val cachedBlogList = blogDao.getBlogList()
             emit(DataState.Success(cacheMapper.mapFromEntityList(cachedBlogList)))
 
         } catch (e: Exception) {
